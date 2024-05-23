@@ -1,14 +1,9 @@
-#!/usr/bin/env python
-# coding: utf-8
 
-# In[ ]:
+#Uygulamayı test etmek için rastgele isimli yazarlı kitap eklemek için kullanılabilir
 
-
-#adding a book to the system
 path_of_csv = r"C:\Users\kuzey\OneDrive\Masaüstü"
 file_name = "database"
 
-# List of book names
 book_names = [
     "To Kill a Mockingbird", "1984", "The Great Gatsby", "Pride and Prejudice", "The Catcher in the Rye",
     "Brave New World", "The Hobbit", "Fahrenheit 451", "The Lord of the Rings", "Animal Farm",
@@ -112,19 +107,5 @@ def add_book(csv_name, path_for_csv, bookname, category, author, publisher, publ
 
     return True
 #dd/mm/yy
-for i in range(1000):
+for i in range(1000):  #1000 sayısını kaç tane kitap eklemek istiyorsanız o sayıyla değiştirin
     result = add_book(file_name, path_of_csv, choice(book_names), choice(book_types), choice(authors), choice(publishers), f"{random.randint(1, 31):02d}/{random.randint(1, 12):02d}/{random.randint(1900, 2024)}")
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-

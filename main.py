@@ -1,43 +1,28 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[ ]:
-
-
-import pandas as pd
-
-def display_database(csv_path):
-    try:
-        # Read the CSV file into a DataFrame
-        df = pd.read_csv(csv_path)
-        
-        # Display the DataFrame
-        print(df)
-    
-    except FileNotFoundError:
-        print("Error: File not found.")
-
-# Path to the CSV file
-csv_path = r"C:\Users\kuzey\OneDrive\Masaüstü\database.csv"
-
-# Call the function to display the database
-display_database(csv_path)
-
-
-# In[ ]:
-
-
-217, 217, 217
-
-
-# In[1]:
-
-
 import pandas as pd
 import tkinter as tk
 from tkinter import ttk, messagebox
 from datetime import datetime, timedelta
 import tkinter.messagebox as messagebox
+import os
+import csv
+
+path_of_csv = r"C:\Users\kuzey\OneDrive\Masaüstü" #Burayı değiştir
+file_name = "database"                            # ve burayı
+
+
+def create_csv_file(csv_name, path_for_csv):
+    if not os.path.exists(os.path.join(path_for_csv, f"{csv_name}.csv")):
+        with open(os.path.join(path_for_csv, f"{csv_name}.csv"), 'w', newline='') as csvfile:
+            fieldnames = ['ID', 'Kitap adi', 'Turu', 'Yazar','Yayin evi', 'Baski tarihi', 'Durumu', 'Kullanici ismi', 'Borclunun iletisim bilgileri','Odunc alinan zaman','Iade tarihi']
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            writer.writeheader()
+        return True
+    else:
+        return False
+
+result = create_csv_file(file_name, path_of_csv)
+
+
 
 
 def add_five_days(date_str):
@@ -50,7 +35,7 @@ def add_five_days(date_str):
 
 
 
-csv_path = r"C:\Users\kuzey\OneDrive\Masaüstü\database.csv"
+csv_path = path_of_csv + "\\" + file_name + ".csv"
 
 
 display_mapping = {
@@ -433,7 +418,3 @@ try:
     
 except FileNotFoundError:
     print("Error: File not found.")
-
-
-
-

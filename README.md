@@ -1,5 +1,6 @@
 ## KÜTÜPHANE
 Kütüphanelerde kitap kaydetmek, ödünç vermek için yapılmış tkinter arayüzüne sahip Python ile yazılmış bir kütüphane uygulaması.
+Program çevirimdışı olarak çalışmaktadır. 
 
 ## Nasıl yüklenir?
 Requirements.txt dosyasındaki modulleri yüklemeniz/import etmeniz gerekiyor:
